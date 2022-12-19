@@ -4,8 +4,8 @@ use axum::{
     http::StatusCode,
     routing::{self, Router},
 };
-use tower_http::{services::ServeDir, trace::TraceLayer};
 use router::init_resource_router;
+use tower_http::{services::ServeDir, trace::TraceLayer};
 #[tokio::main]
 async fn main() -> Result<()> {
     let addr = "127.0.0.1:3000".parse()?;

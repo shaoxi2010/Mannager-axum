@@ -5,6 +5,17 @@ const tableData = ref([])
 
 const deleteDevice = (uuid) => {
     console.log(`delete ${uuid}`)
+    axios.delete("/devices", {
+        header: { 
+            'Content-Type': 'application/json'
+        },
+        data: {
+            uuid: uuid
+        }
+    }).catch(function(reason) {
+            alert("通讯异常")
+        }
+    )
 }
 
 const getDevices = () => {

@@ -4,12 +4,14 @@ import { ref } from 'vue'
 const ipaddr = ref('')
 const passWord = ref('')
 const deviceName = ref('')
+const user = ref('')
 
 const click = () => {
     axios.post("/devices",
         {
             name: deviceName.value,
             ipaddr: ipaddr.value,
+            user: user.value,
             password: passWord.value,
         },
         { headers: { 'Content-Type': 'application/json' } }
@@ -27,6 +29,8 @@ const click = () => {
         <el-input type="text" v-model="deviceName" class="input"></el-input>
         <h1 class="title">输入设备的IP地址:</h1>
         <el-input type="text" v-model="ipaddr" class="input"></el-input>
+        <h1 class="title">输入设备的用户名:</h1>
+        <el-input type="text" v-model="user" class="input"></el-input>
         <h1 class="title">输入设备的密码:</h1>
         <el-input type="text" v-model="passWord" class="input"></el-input>
         <el-button class="btn" @click="click">执行添加</el-button>
